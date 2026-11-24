@@ -1,2 +1,2 @@
-# -my-ai-center
+# my-ai-center
 MY AI CENTER Dashboard
