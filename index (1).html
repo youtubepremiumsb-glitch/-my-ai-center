@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b1020">
+<title>MY AI CENTER</title>
+<style>
+:root{--bg:#080d19;--panel:#111a2d;--panel2:#162239;--line:#263653;--text:#edf3ff;--muted:#9aabc7;--accent:#8b7cff;--cyan:#55d6e8}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;font-family:system-ui,-apple-system,"Noto Sans Bengali",sans-serif;color:var(--text);background:radial-gradient(ellipse at 15% 0%,#252052 0,transparent 38%),radial-gradient(ellipse at 90% 20%,#103747 0,transparent 32%),var(--bg)}
+.wrap{width:min(1120px,calc(100% - 32px));margin:auto;padding:30px 0 48px}
+header{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:28px}
+.brand{display:flex;align-items:center;gap:13px}
+.logo{width:52px;height:52px;border-radius:17px;display:grid;place-items:center;font-weight:900;font-size:21px;background:linear-gradient(135deg,#8b7cff,#36c9d8);box-shadow:0 10px 30px #6256d455}
+h1{font-size:clamp(22px,4vw,32px);letter-spacing:.04em;margin:0}
+.sub{color:var(--muted);font-size:13px;margin-top:3px}
+.pill{border:1px solid var(--line);border-radius:999px;padding:8px 12px;color:#c9d6ef;font-size:12px;white-space:nowrap}
+.hero{padding:28px;border:1px solid #34415f;border-radius:24px;background:linear-gradient(120deg,#171e39dd,#102a37dd);box-shadow:0 20px 60px #0005;margin-bottom:24px}
+.hero h2{font-size:clamp(22px,4vw,30px);margin:0 0 8px}
+.hero p{margin:0;color:#b8c6df;line-height:1.7;max-width:720px}
+.toolbar{display:flex;gap:12px;margin:22px 0 18px;flex-wrap:wrap}
+.search{flex:1;min-width:220px;background:#101a2b;border:1px solid var(--line);border-radius:13px;padding:13px 15px;color:var(--text);font:inherit;outline:none}
+.search:focus{border-color:var(--accent);box-shadow:0 0 0 3px #8b7cff22}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.filter{border:1px solid var(--line);background:#111a2d;color:#b8c6df;padding:10px 13px;border-radius:12px;cursor:pointer}
+.filter.active{background:#5146a8;border-color:#8174ff;color:white}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.card{border:1px solid var(--line);background:linear-gradient(155deg,#152139,#0f1728);border-radius:19px;padding:18px;display:flex;flex-direction:column;min-height:190px;transition:.2s}
+.card:hover{transform:translateY(-3px);border-color:#6573a4;box-shadow:0 15px 35px #0004}
+.top{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.icon{width:47px;height:47px;border-radius:14px;background:#202d48;display:grid;place-items:center;font-size:23px;font-weight:800;flex:none}
+.name{font-weight:750;font-size:17px}
+.category{font-size:12px;color:var(--muted);margin-top:3px}
+.desc{color:#b6c4dc;font-size:13px;line-height:1.55;margin:0 0 17px}
+.actions{display:flex;gap:9px;margin-top:auto}
+.btn{border:0;border-radius:11px;padding:10px 13px;font-weight:700;text-decoration:none;text-align:center;font-size:13px;cursor:pointer}
+.primary{background:linear-gradient(110deg,#8274ff,#4cbfd2);color:#08101e;flex:1}
+.secondary{background:#202d45;color:#d9e4f7;border:1px solid #344563}
+.note{margin-top:22px;padding:15px 17px;border:1px solid #344563;border-radius:15px;background:#101a2b;color:#aebdd5;font-size:13px;line-height:1.7}
+footer{text-align:center;color:#71829e;font-size:12px;margin-top:26px}
+.empty{display:none;text-align:center;color:var(--muted);padding:30px}
+@media(max-width:800px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{padding:22px}}
+@media(max-width:540px){.wrap{width:min(100% - 22px,1120px);padding-top:19px}header{align-items:flex-start}.pill{font-size:11px}.grid{grid-template-columns:1fr}.card{min-height:172px}.hero{border-radius:19px}.toolbar{margin-top:17px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header>
+  <div class="brand"><div class="logo">AI</div><div><h1>MY AI CENTER</h1><div class="sub">আপনার AI টুলস, এক জায়গায়</div></div></div>
+  <div class="pill">PERSONAL AI DASHBOARD</div>
+</header>
+
+<section class="hero">
+  <h2>এক ক্লিকেই আপনার পছন্দের AI</h2>
+  <p>কোডিং, ওয়েবসাইট তৈরি, ছবি, লেখা ও গবেষণার জন্য প্রয়োজনীয় AI টুলস দ্রুত খুলুন। প্রতিটি কার্ড থেকে সংশ্লিষ্ট অফিসিয়াল ওয়েবসাইটে যেতে পারবেন।</p>
+</section>
+
+<div class="toolbar">
+  <input id="search" class="search" type="search" placeholder="AI-এর নাম বা কাজ লিখে খুঁজুন..." aria-label="AI খুঁজুন">
+  <div class="filters" aria-label="ক্যাটাগরি ফিল্টার">
+    <button class="filter active" data-filter="all">সব</button>
+    <button class="filter" data-filter="coding">কোডিং</button>
+    <button class="filter" data-filter="creative">ছবি ও লেখা</button>
+    <button class="filter" data-filter="research">গবেষণা</button>
+    <button class="filter" data-filter="multi">বিভিন্ন মডেল</button>
+  </div>
+</div>
+
+<section class="grid" id="grid">
+  <article class="card" data-category="coding creative" data-search="claude কোডিং ওয়েবসাইট লেখা anthopic">
+    <div class="top"><div class="icon">✳</div><div><div class="name">Claude AI</div><div class="category">কোডিং · বড় প্রজেক্ট · লেখা</div></div></div>
+    <p class="desc">ওয়েবসাইট পরিকল্পনা, কোড লেখা, ডিবাগিং ও দীর্ঘ ডকুমেন্ট নিয়ে কাজ।</p>
+    <div class="actions"><a class="btn primary" href="https://claude.ai/" target="_blank" rel="noopener">Claude খুলুন ↗</a><button class="btn secondary" onclick="copyLink('https://claude.ai/')">লিংক কপি</button></div>
+  </article>
+  <article class="card" data-category="coding creative research" data-search="chatgpt openai কোডিং ছবি লেখা বিশ্লেষণ">
+    <div class="top"><div class="icon">◉</div><div><div class="name">ChatGPT</div><div class="category">সব ধরনের কাজ · ছবি · কোড</div></div></div>
+    <p class="desc">প্রশ্নোত্তর, কোডিং, ফাইল বিশ্লেষণ, লেখা ও ছবি তৈরির কাজ।</p>
+    <div class="actions"><a class="btn primary" href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT খুলুন ↗</a><button class="btn secondary" onclick="copyLink('https://chatgpt.com/')">লিংক কপি</button></div>
+  </article>
+  <article class="card" data-category="creative research" data-search="gemini google ছবি লেখা গবেষণা">
+    <div class="top"><div class="icon">✦</div><div><div class="name">Google Gemini</div><div class="category">ছবি · লেখা · গবেষণা</div></div></div>
+    <p class="desc">Google-এর AI সহকারী দিয়ে লেখা, ধারণা, ব্যাখ্যা ও সৃজনশীল কাজ।</p>
+    <div class="actions"><a class="btn primary" href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini খুলুন ↗</a><button class="btn secondary" onclick="copyLink('https://gemini.google.com/')">লিংক কপি</button></div>
+  </article>
+  <article class="card" data-category="coding research" data-search="deepseek কোডিং php mysql programming">
+    <div class="top"><div class="icon">◈</div><div><div class="name">DeepSeek</div><div class="category">প্রোগ্রামিং · PHP · MySQL</div></div></div>
+    <p class="desc">কোড ব্যাখ্যা, প্রোগ্রামিংয়ের সমস্যা সমাধান ও যুক্তিভিত্তিক কাজ।</p>
+    <div class="actions"><a class="btn primary" href="https://chat.deepseek.com/" target="_blank" rel="noopener">DeepSeek খুলুন ↗</a><button class="btn secondary" onclick="copyLink('https://chat.deepseek.com/')">লিংক কপি</button></div>
+  </article>
+  <article class="card" data-category="creative research" data-search="copilot microsoft লেখা ছবি অনুসন্ধান">
+    <div class="top"><div class="icon">∞</div><div><div class="name">Microsoft Copilot</div><div class="category">লেখা · সৃজনশীলতা · তথ্য</div></div></div>
+    <p class="desc">সাধারণ প্রশ্ন, লেখার সহায়তা, আইডিয়া ও ওয়েবভিত্তিক কাজ।</p>
+    <div class="actions"><a class="btn primary" href="https://copilot.microsoft.com/" target="_blank" rel="noopener">Copilot খুলুন ↗</a><button class="btn secondary" onclick="copyLink('https://copilot.microsoft.com/')">লিংক কপি</button></div>
+  </article>
+  <article class="card" data-category="multi" data-search="poe বিভিন্ন মডেল এক জায়গায়">
+    <div class="top"><div class="icon">P</div><div><div class="name">Poe</div><div class="category">বিভিন্ন AI মডেল</div></div></div>
+    <p class="desc">একটি প্ল্যাটফর্মে বিভিন্ন AI বট ও মডেল চেষ্টা করুন।</p>
+    <div class="actions"><a class="btn primary" href="https://poe.com/" target="_blank" rel="noopener">Poe খুলুন ↗</a><button class="btn secondary" onclick="copyLink('https://poe.com/')">লিংক কপি</button></div>
+  </article>
+  <article class="card" data-category="multi coding" data-search="huggingchat hugging face open model">
+    <div class="top"><div class="icon">🤗</div><div><div class="name">HuggingChat</div><div class="category">ওপেন মডেল · পরীক্ষা</div></div></div>
+    <p class="desc">উপলভ্য ওপেন মডেল দিয়ে চ্যাট ও বিভিন্ন কাজ পরীক্ষা করুন।</p>
+    <div class="actions"><a class="btn primary" href="https://huggingface.co/chat/" target="_blank" rel="noopener">HuggingChat খুলুন ↗</a><button class="btn secondary" onclick="copyLink('https://huggingface.co/chat/')">লিংক কপি</button></div>
+  </article>
+</section>
+<div id="empty" class="empty">কোনো AI টুল পাওয়া যায়নি। অন্য নামে খুঁজে দেখুন।</div>
+
+<div class="note"><strong>ব্যবহারের নোট:</strong> এই ড্যাশবোর্ড কোনো AI-এর পেইড সীমা বাইপাস করে না এবং নিজে AI উত্তর তৈরি করে না—এটি শুধু সংশ্লিষ্ট সার্ভিসের ওয়েবসাইট খোলে। প্রতিটি সার্ভিসের ফ্রি প্ল্যানে ব্যবহারসীমা থাকতে পারে। ব্যক্তিগত পাসওয়ার্ড, OTP বা ব্যাংকিং তথ্য শেয়ার করবেন না।</div>
+<footer>MY AI CENTER · Personal dashboard · Works on mobile and desktop</footer>
+</main>
+<script>
+const search=document.getElementById('search');
+const cards=[...document.querySelectorAll('.card')];
+const filters=[...document.querySelectorAll('.filter')];
+let current='all';
+function update(){
+ const q=search.value.trim().toLowerCase();let count=0;
+ cards.forEach(card=>{
+  const matchText=card.dataset.search.toLowerCase().includes(q)||card.innerText.toLowerCase().includes(q);
+  const matchCat=current==='all'||card.dataset.category.split(' ').includes(current);
+  const show=matchText&&matchCat;card.style.display=show?'flex':'none';if(show)count++;
+ });
+ document.getElementById('empty').style.display=count?'none':'block';
+}
+search.addEventListener('input',update);
+filters.forEach(btn=>btn.addEventListener('click',()=>{
+ filters.forEach(b=>b.classList.remove('active'));btn.classList.add('active');current=btn.dataset.filter;update();
+}));
+function copyLink(url){
+ if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(url).then(()=>alert('লিংক কপি হয়েছে।')).catch(()=>prompt('লিংক কপি করুন:',url));}
+ else{prompt('লিংক কপি করুন:',url);}
+}
+</script>
+</body>
+</html>
